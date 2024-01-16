@@ -11,7 +11,7 @@ body{
 
 header{
     background-color: #333;
-    color: white;
+    color: rgb(255, 255, 255);
     text-align: center;
 }
 
@@ -31,7 +31,7 @@ header{
 .main-div-buttons {
     display: flex;
     flex-wrap: wrap; /* Allow buttons to wrap to the next line on smaller screens */
-    gap: 20px; /* Adjust as needed */
+    gap: 15px; /* Adjust as needed */
     justify-content: center;
 }
 
@@ -82,6 +82,6 @@ header{
     .main-div-rock,
     .main-div-paper,
     .main-div-scissor {
-        margin: 10px; /* Adjust spacing for smaller screens */
+        margin: 15px; /* Adjust spacing for smaller screens */
     }
 }
