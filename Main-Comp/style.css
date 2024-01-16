@@ -23,6 +23,7 @@ header{
 .main-div {
     flex: 1; /* Gives all remaining space to the Main div */
     display: flex;
+    flex-direction: column; /* Change to column direction */
     justify-content: center;
     align-items: center;
 }
@@ -31,6 +32,12 @@ header{
     display: flex;
     flex-wrap: wrap; /* Allow buttons to wrap to the next line on smaller screens */
     gap: 20px; /* Adjust as needed */
+    justify-content: center;
+}
+
+.main-div-cputab {
+    margin-top: 20px;
+    text-align: center;
 }
 
 .main-div-rock,
@@ -39,9 +46,9 @@ header{
     
 }
 
-.main-div-rock-button,
-.main-div-paper-button,
-.main-div-scissor-button {
+#main-div-rock-button,
+#main-div-paper-button,
+#main-div-scissor-button {
     padding: 3rem 3rem;
     margin: 0;
     border: 2px solid;
@@ -53,9 +60,9 @@ header{
     transition: background-color 0.3s ease;
 }
 
-.main-div-rock-button:hover,
-.main-div-paper-button:hover,
-.main-div-scissor-button:hover {
+#main-div-rock-button:hover,
+#main-div-paper-button:hover,
+#main-div-scissor-button:hover {
     background-color: #ebebeb; /* Change to your desired hover background color */
 }
 
@@ -64,4 +71,17 @@ header{
 #scissor-img {
     width: 100px; /* Adjust as needed */
     height: auto; /* Maintain aspect ratio */
+}
+
+@media (max-width: 600px) {
+    .main-div-buttons {
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .main-div-rock,
+    .main-div-paper,
+    .main-div-scissor {
+        margin: 10px; /* Adjust spacing for smaller screens */
+    }
 }
