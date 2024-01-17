@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Wait for the DOM to be fully loaded before attaching event listeners
 
     // Get references to the buttons
-    var clientScore = 0
+    var playerScore = 0
+    var cpuScore = 0
     var rockButton = document.getElementById('main-div-rock-button');
     var paperButton = document.getElementById('main-div-paper-button');
     var scissorButton = document.getElementById('main-div-scissor-button');
@@ -55,19 +56,39 @@ document.addEventListener('DOMContentLoaded', function() {
             
         }
 
-        if (clientStatus === 1) {
-            clientScore += 1
+        if (clientStatus === 1) { //1 = won, 2 = tie, 3 = lost
+            playerScore += 1
             document.getElementById("main-div-cputab-text").style.color = "Green"
-            document.getElementById("main-div-clienttab-text").innerHTML = "Your score " + clientScore
+            document.getElementById("main-div-playerScore-text").innerHTML = "Your score: " + playerScore
         } else if (clientStatus === 2) {
             document.getElementById("main-div-cputab-text").style.color = "#EC8B49"
         } else {
-            clientScore -= 1
+            cpuScore += 1
             document.getElementById("main-div-cputab-text").style.color = "Red"
-            document.getElementById("main-div-clienttab-text").innerHTML = "Your score " + clientScore
+            document.getElementById("main-div-cpuScore-text").innerHTML = "CPU score: " + cpuScore
+        }
+
+        if (playerScore === 7 || cpuScore === 7) {
+
+            if (playerScore > cpuScore) {
+                resetGame("You won!")
+            } else {
+                resetGame("You lost")
+            }
+
         }
 
         return text
+    }
+
+    function resetGame(gameFinalStats) {
+        console.log("Game over!")
+        window.alert(gameFinalStats + "\nReseting game...");
+
+        document.getElementById("main-div-playerScore-text").innerHTML = "Your score: 0"
+        document.getElementById("main-div-cpuScore-text").innerHTML = "CPU score: 0"
+        playerScore = 0
+        cpuScore = 0
     }
 
     // Add click event listeners
